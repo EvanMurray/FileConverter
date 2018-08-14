@@ -13,6 +13,7 @@ namespace FileConverter
 {
     public partial class Form1 : Form
     {
+        Image image;
         public Form1()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace FileConverter
         private void button1_Click(object sender, EventArgs e)
         {
             string fileName = inputFileBox.Text;
-            Image image = Image.FromFile(fileName);
+           
             DirectoryInfo di = new DirectoryInfo(fileName);
             
             string outputFile = outputTextBox.Text + "\\" + di.Name.Substring(0, di.Name.Length - 3)+"png";
@@ -42,6 +43,8 @@ namespace FileConverter
             if (fdlg.ShowDialog() == DialogResult.OK)
             {
                 inputFileBox.Text = fdlg.FileName;
+                image = Image.FromFile(inputFileBox.Text);
+                pictureBox1.Image = image;
             }
         }
 

@@ -20,7 +20,7 @@ namespace FileConverter
         }
 
        
-        private void button1_Click(object sender, EventArgs e)
+        private void convertButton_Click(object sender, EventArgs e)
         {
             string fileName = inputFileBox.Text;
            
@@ -28,10 +28,7 @@ namespace FileConverter
             string fileType = comboBoxChoice();
 
             string outputFile = outputTextBox.Text + "\\" + di.Name.Substring(0, di.Name.Length - 3)+ fileType.ToLower();
-            image.Save(outputFile, System.Drawing.Imaging.ImageFormat.Png);
-            
-            
-            
+            image.Save(outputFile, System.Drawing.Imaging.ImageFormat.Png);    
         }
 
 
@@ -47,15 +44,11 @@ namespace FileConverter
             {
                 inputFileBox.Text = fdlg.FileName;
                 image = Image.FromFile(inputFileBox.Text);
-                pictureBox1.Image = image;
+                displayBox.Image = image;
             }
         }
 
-        private void inputFileBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+   
         private void outputButton_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
@@ -66,14 +59,10 @@ namespace FileConverter
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private string comboBoxChoice()
         {
-            string type = comboBox1.Text;
+            string type = formatMenu.Text;
             return type;
         }
 

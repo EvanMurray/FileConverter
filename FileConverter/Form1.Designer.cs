@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.convertButton = new System.Windows.Forms.Button();
             this.inputFileBox = new System.Windows.Forms.TextBox();
             this.browseButton = new System.Windows.Forms.Button();
             this.outputTextBox = new System.Windows.Forms.TextBox();
             this.outputButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.displayBox = new System.Windows.Forms.PictureBox();
+            this.formatMenu = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.displayBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // convertButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.button1.Location = new System.Drawing.Point(12, 366);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(290, 107);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Convert Image";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.convertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.convertButton.Location = new System.Drawing.Point(12, 366);
+            this.convertButton.Name = "button1";
+            this.convertButton.Size = new System.Drawing.Size(290, 107);
+            this.convertButton.TabIndex = 0;
+            this.convertButton.Text = "Convert Image";
+            this.convertButton.UseVisualStyleBackColor = true;
+            this.convertButton.Click += new System.EventHandler(this.convertButton_Click);
             // 
             // inputFileBox
             // 
@@ -56,7 +56,6 @@
             this.inputFileBox.Name = "inputFileBox";
             this.inputFileBox.Size = new System.Drawing.Size(290, 22);
             this.inputFileBox.TabIndex = 1;
-            this.inputFileBox.TextChanged += new System.EventHandler(this.inputFileBox_TextChanged);
             // 
             // browseButton
             // 
@@ -85,28 +84,27 @@
             this.outputButton.UseVisualStyleBackColor = true;
             this.outputButton.Click += new System.EventHandler(this.outputButton_Click);
             // 
-            // pictureBox1
+            // displayBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(413, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(429, 492);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.displayBox.Location = new System.Drawing.Point(413, 7);
+            this.displayBox.Name = "displayBox";
+            this.displayBox.Size = new System.Drawing.Size(429, 492);
+            this.displayBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.displayBox.TabIndex = 5;
+            this.displayBox.TabStop = false;
             // 
-            // comboBox1
+            // formatMenu
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.formatMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.formatMenu.FormattingEnabled = true;
+            this.formatMenu.Items.AddRange(new object[] {
             "JPG",
             "PNG",
             "BMP"});
-            this.comboBox1.Location = new System.Drawing.Point(70, 136);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 24);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.formatMenu.Location = new System.Drawing.Point(70, 136);
+            this.formatMenu.Name = "comboBox1";
+            this.formatMenu.Size = new System.Drawing.Size(150, 24);
+            this.formatMenu.TabIndex = 6;
             // 
             // label1
             // 
@@ -123,16 +121,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 511);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.formatMenu);
+            this.Controls.Add(this.displayBox);
             this.Controls.Add(this.outputButton);
             this.Controls.Add(this.outputTextBox);
             this.Controls.Add(this.browseButton);
             this.Controls.Add(this.inputFileBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.convertButton);
             this.Name = "Form1";
             this.Text = "Image Converter";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.displayBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,13 +138,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button convertButton;
         private System.Windows.Forms.TextBox inputFileBox;
         private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.TextBox outputTextBox;
         private System.Windows.Forms.Button outputButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.PictureBox displayBox;
+        private System.Windows.Forms.ComboBox formatMenu;
         private System.Windows.Forms.Label label1;
     }
 }

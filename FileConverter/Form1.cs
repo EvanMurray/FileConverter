@@ -19,18 +19,21 @@ namespace FileConverter
             InitializeComponent();
         }
 
+       
         private void button1_Click(object sender, EventArgs e)
         {
             string fileName = inputFileBox.Text;
            
             DirectoryInfo di = new DirectoryInfo(fileName);
-            
-            string outputFile = outputTextBox.Text + "\\" + di.Name.Substring(0, di.Name.Length - 3)+"png";
+            string fileType = comboBoxChoice();
+
+            string outputFile = outputTextBox.Text + "\\" + di.Name.Substring(0, di.Name.Length - 3)+ fileType.ToLower();
             image.Save(outputFile, System.Drawing.Imaging.ImageFormat.Png);
             
             
             
         }
+
 
         private void browseButton_Click(object sender, EventArgs e)
         {
@@ -62,5 +65,18 @@ namespace FileConverter
                 outputTextBox.Text = folderBrowserDialog.SelectedPath;
             }
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private string comboBoxChoice()
+        {
+            string type = comboBox1.Text;
+            return type;
+        }
+
+
     }
 }

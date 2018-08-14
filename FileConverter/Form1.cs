@@ -21,5 +21,24 @@ namespace FileConverter
         {
 
         }
+
+        private void browseButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fdlg = new OpenFileDialog();
+            fdlg.Title = "Please choose a file";
+            fdlg.InitialDirectory = @"c:\";
+            fdlg.Filter = "All files (*.*)|*.*|All files (*.*)|*.*";
+            fdlg.FilterIndex = 2;
+            fdlg.RestoreDirectory = true;
+            if (fdlg.ShowDialog() == DialogResult.OK)
+            {
+                inputFileBox.Text = fdlg.FileName;
+            }
+        }
+
+        private void inputFileBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

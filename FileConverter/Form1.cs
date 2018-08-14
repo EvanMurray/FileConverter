@@ -22,13 +22,22 @@ namespace FileConverter
        
         private void convertButton_Click(object sender, EventArgs e)
         {
-            string fileName = inputFileBox.Text;
-           
-            DirectoryInfo di = new DirectoryInfo(fileName);
-            string fileType = comboBoxChoice();
+            if (!(String.IsNullOrEmpty(inputFileBox.Text)) && !(String.IsNullOrEmpty(outputTextBox.Text)))
+            {
+                string fileName = inputFileBox.Text;
 
-            string outputFile = outputTextBox.Text + "\\" + di.Name.Substring(0, di.Name.Length - 3)+ fileType.ToLower();
-            image.Save(outputFile, System.Drawing.Imaging.ImageFormat.Png);    
+                DirectoryInfo di = new DirectoryInfo(fileName);
+                string fileType = comboBoxChoice();
+
+                string outputFile = outputTextBox.Text + "\\" + di.Name.Substring(0, di.Name.Length - 3) + fileType.ToLower();
+                image.Save(outputFile, System.Drawing.Imaging.ImageFormat.Png);
+                MessageBox.Show("Success!");
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("One or more fields have been left blank.");
+            }
         }
 
 
@@ -43,7 +52,19 @@ namespace FileConverter
             if (fdlg.ShowDialog() == DialogResult.OK)
             {
                 inputFileBox.Text = fdlg.FileName;
-                image = Image.FromFile(inputFileBox.Text);
+
+                try
+                {
+                    image = Image.FromFile(inputFileBox.Text);
+                }
+                catch
+                {
+                    
+                    MessageBox.Show("Sorry, this converter does not support the file format you are trying to use.");
+                    inputFileBox.Clear();
+                    
+                }
+                
                 displayBox.Image = image;
             }
         }

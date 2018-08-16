@@ -19,6 +19,7 @@ namespace FileConverter
         public Form1()
         {
             InitializeComponent();
+            formatMenu.SelectedIndex = 0;
         }
 
        
@@ -33,8 +34,9 @@ namespace FileConverter
 
                 string outputFile = outputTextBox.Text + "\\" + di.Name.Substring(0, di.Name.Length - 3) + fileType;
                 image.Save(outputFile, getImageFormat(fileType));
-                MessageBox.Show("Success!");
-                Close();
+                DialogResult result = MessageBox.Show("Success! Did you want to convert another image?", "Conversion Successful", MessageBoxButtons.YesNo);
+                resultChoice(result);
+                
             }
             else
             {
@@ -105,6 +107,21 @@ namespace FileConverter
             }
             return null;
             
+        }
+
+        private void resultChoice(DialogResult result)
+        {
+            if (result == DialogResult.Yes)
+            {
+                inputFileBox.Text = "";
+                outputTextBox.Text = "";
+                displayBox.Image = null;
+
+            }
+            else if (result == DialogResult.No)
+            {
+                Close();
+            }
         }
 
 

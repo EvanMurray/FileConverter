@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace FileConverter
 {
@@ -27,10 +29,10 @@ namespace FileConverter
                 string fileName = inputFileBox.Text;
 
                 DirectoryInfo di = new DirectoryInfo(fileName);
-                string fileType = comboBoxChoice();
+                string fileType = comboBoxChoice().ToLower();
 
-                string outputFile = outputTextBox.Text + "\\" + di.Name.Substring(0, di.Name.Length - 3) + fileType.ToLower();
-                image.Save(outputFile, System.Drawing.Imaging.ImageFormat.Png);
+                string outputFile = outputTextBox.Text + "\\" + di.Name.Substring(0, di.Name.Length - 3) + fileType;
+                image.Save(outputFile, getImageFormat(fileType));
                 MessageBox.Show("Success!");
                 Close();
             }
@@ -85,6 +87,24 @@ namespace FileConverter
         {
             string type = formatMenu.Text;
             return type;
+        }
+
+        private ImageFormat getImageFormat(string type)
+        {
+            switch (type)
+            {
+                case "png":
+                    return ImageFormat.Png;
+                case "jpg":
+                    return ImageFormat.Jpeg;
+                case "bmp":
+                    return ImageFormat.Bmp;
+                default:
+                    MessageBox.Show("Im sorry, but that image type is not yet supported.");
+                    break;
+            }
+            return null;
+            
         }
 
 
